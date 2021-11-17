@@ -134,7 +134,11 @@ Check the cluster
 
 A fast way to check the deployment/cluster is via command line:
 ```
-:~# flux get helmreleases --all-namespacesor:~# kubectl get helmreleases -A
+:~# flux get helmreleases --all-namespaces
+
+or
+
+:~# kubectl get helmreleases -A
 ```
 In the alternative, you can install a Kubernetes IDE, like LENS and then you’ll see the deployments:
 
