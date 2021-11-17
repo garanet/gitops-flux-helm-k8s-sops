@@ -1,0 +1,29 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+spec:
+  sourceRef: # moved from `.spec.checkout`
+    kind: GitRepository
+    name: update-app
+  interval: 5m
+  # omit suspend, which has not changed
+  update:
+    strategy: Setters
+    path: ./app
+  git:
+    checkout: # moved under `git`, loses `gitRepositoryRef`
+      gitRepositoryRef:
+        name: cuttlefacts-repo
+      ref:
+        branch: main # moved into `ref` struct
+    commit: # moved under `git`
+      author:
+        name: fluxbot  # moved from `authorName`
+        email: fluxbot@example.com # moved from `authorEmail`
+      messageTemplate: |
+        An automated update from FluxBot
+        [ci skip]        
+      signingKey:
+        secretRef:
+          name: git-pgp
+    push: # moved under `git`
+      branch: auto

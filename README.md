@@ -3,8 +3,10 @@
 
 The goal of this article is an example of the benefits of the GitOPS tools like FluxCD, EKS, SOPS, KMS.
 How Setup a next-gen Kubernetes deployment depicting your current technology.
-A GitOPS example with Flux, Kubernetes, Git and sops
-A GitOPS example with Flux, Kubernetes, Git, and sopsA GitOPS example with Flux, Kubernetes, Git, and sops
+
+A GitOPS example with Flux, Kubernetes, Git, and sops
+
+https://www.garanet.net/gitops-example-flux-kubernetes-gitlab-sops/
 
 ### The tools used for this example are:
 
@@ -285,4 +287,5 @@ BUILDING:
 - https://fluxcd.io/docs/use-cases/jenkins/
 - https://github.com/kingdonb/jenkins-example-workflow
 - https://itnext.io/continuous-delivery-with-gitops-591ff031e8f9
-- Check also how: https://www.garanet.net/aws-protected-website-cloudfront-lambda/
+
+Check also how: https://www.garanet.net/aws-protected-website-cloudfront-lambda/

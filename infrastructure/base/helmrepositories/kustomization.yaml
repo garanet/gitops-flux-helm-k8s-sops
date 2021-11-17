@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ./bitnami.yaml
+  - ./podinfo.yaml
+  - ./truecharts.yaml
+  - ./phntom.yaml
+  - ./jenkins.yaml
+  - ./cnieg.yaml
+  - ./hashicorp.yaml

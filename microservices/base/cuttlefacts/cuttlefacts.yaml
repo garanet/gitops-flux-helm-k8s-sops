@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cuttlefacts
+  namespace: cuttlefacts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cuttlefacts
+  strategy:
+    type: RollingUpdate
+  progressDeadlineSeconds: 20
+  minReadySeconds: 5
+  revisionHistoryLimit: 2
+  template:
+    metadata:
+      labels:
+        app: cuttlefacts
+    spec:
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+
+      containers:
+      - name: server
+        image: cuttlefacts/cuttlefacts-app # {"$imagepolicy": "flux-system:app-policy"}
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            port: 8080
+            path: /
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            port: 8080
+            path: /
+          initialDelaySeconds: 2
+          timeoutSeconds: 5
+        # no args

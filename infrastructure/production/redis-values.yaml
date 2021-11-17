@@ -1,0 +1,13 @@
+# Default values
+# https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-values
+  namespace: redis
+data:
+  values.yaml: |    
+    usePassword: false
+    cluster.enabled: false
+    master:
+      persistence.enabled: false
